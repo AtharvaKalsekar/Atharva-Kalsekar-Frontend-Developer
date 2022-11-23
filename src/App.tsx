@@ -7,13 +7,17 @@ import { store } from '@store';
 import { Buffer } from 'buffer';
 import { Provider } from 'react-redux';
 
+import { PaginationContextProvider } from './modules/Pagination';
+
 window.Buffer = Buffer;
 
 function App() {
   return (
     <Provider store={store}>
       <Filters />
-      <DataGrid />
+      <PaginationContextProvider>
+        <DataGrid />
+      </PaginationContextProvider>
     </Provider>
   );
 }
