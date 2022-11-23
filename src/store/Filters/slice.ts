@@ -1,10 +1,13 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-import { Filters, FiltersState, PayLoad } from './types';
+import { DateRange, FilterOption, Filters, FiltersState, PayLoad } from './types';
 
 const initialState: FiltersState = {
   [Filters.STATUS]: [],
-  [Filters.ORIGINAL_LAUNCH]: [],
+  [Filters.DATE_RANGE]: {
+    startDate: null,
+    endDate: null,
+  },
   [Filters.TYPE]: [],
 };
 
@@ -13,7 +16,15 @@ export const FiltersSlice = createSlice({
   initialState,
   reducers: {
     setFilters: (state, action: PayloadAction<PayLoad>) => {
-      state[action.payload.filterType] = [...action.payload.filterOptions];
+      if (action.payload.filterType === Filters.DATE_RANGE) {
+        state[action.payload.filterType] = {
+          ...(action.payload.filterOptions as DateRange),
+        };
+      } else {
+        state[action.payload.filterType] = [
+          ...(action.payload.filterOptions as FilterOption[]),
+        ];
+      }
     },
     clearAllFilters: (state) => {
       state = initialState;

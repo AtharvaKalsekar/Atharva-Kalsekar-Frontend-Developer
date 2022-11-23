@@ -1,5 +1,7 @@
+import { AppDispatch, Filters, setFilters } from '@store';
 import { useCallback, useState } from 'react';
 import { DateRangePicker as RDateRangePicker } from 'react-date-range';
+import { useDispatch } from 'react-redux';
 
 import Button from '../Button/Button';
 
@@ -12,14 +14,35 @@ export const DateRangePicker = () => {
   const [range, setRange] = useState(initialState);
   const [showPicker, setShowPicker] = useState(false);
 
+  const dispatch = useDispatch<AppDispatch>();
+
   const onChange = useCallback((val: any) => {
-    console.log({ val });
     setRange(val.selection);
   }, []);
 
-  const togglePicker = () => {
+  const togglePicker = useCallback(() => {
     setShowPicker(!showPicker);
-  };
+  }, [showPicker]);
+
+  const onClickCancel = useCallback(() => {
+    setShowPicker(false);
+  }, []);
+
+  const onClickClear = useCallback(() => {
+    setRange(initialState);
+  }, []);
+
+  const onClickApply = useCallback(() => {
+    dispatch(
+      setFilters({
+        filterType: Filters.DATE_RANGE,
+        filterOptions: {
+          ...range,
+        },
+      })
+    );
+    setShowPicker(false);
+  }, [dispatch, range]);
 
   return (
     <>
@@ -33,9 +56,27 @@ export const DateRangePicker = () => {
             onChange={onChange}
           />
           <div className="flex flex-row items-center justify-end gap-3 border border-t-black p-4">
-            <Button buttonType="secondary">Cancel</Button>
-            <Button buttonType="danger">Clear</Button>
-            <Button buttonType="success">Apply</Button>
+            <Button
+              className="text-sm"
+              onClick={onClickCancel}
+              buttonType="secondary"
+            >
+              Cancel
+            </Button>
+            <Button
+              className="text-sm"
+              onClick={onClickClear}
+              buttonType="danger"
+            >
+              Clear
+            </Button>
+            <Button
+              className="text-sm"
+              onClick={onClickApply}
+              buttonType="success"
+            >
+              Apply
+            </Button>
           </div>
         </div>
       )}

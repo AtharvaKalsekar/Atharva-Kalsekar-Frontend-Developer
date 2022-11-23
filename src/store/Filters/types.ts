@@ -1,11 +1,18 @@
 export enum Filters {
   STATUS = "status",
-  ORIGINAL_LAUNCH = "originalLaunch",
+  DATE_RANGE = "dateRange",
   TYPE = "type",
 }
 
+export type DateRange = {
+  startDate: Date | null;
+  endDate: Date | null;
+};
+
 export type FiltersState = {
-  [key in Filters]: FilterOption[];
+  [Filters.STATUS]: FilterOption[];
+  [Filters.TYPE]: FilterOption[];
+  [Filters.DATE_RANGE]: DateRange;
 };
 
 export type FilterOption = {
@@ -15,5 +22,5 @@ export type FilterOption = {
 
 export type PayLoad = {
   filterType: Filters;
-  filterOptions: FilterOption[];
+  filterOptions: FilterOption[] | DateRange;
 };
