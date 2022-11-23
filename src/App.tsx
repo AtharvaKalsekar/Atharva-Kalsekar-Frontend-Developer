@@ -1,11 +1,11 @@
 import './App.css';
 
-import { SelectField } from '@components';
+import { StatusFilter } from './modules/StatusFilter';
 
 function App() {
   return (
-    <div className="App mb-5 text-3xl font-bold text-gray-700">
-      <SelectField />
+    <div>
+      <StatusFilter />
     </div>
   );
 }
