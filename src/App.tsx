@@ -4,7 +4,7 @@ import { SelectField } from '@components';
 
 function App() {
   return (
-    <div className="App text-3xl text-gray-700 font-bold mb-5">
+    <div className="App mb-5 text-3xl font-bold text-gray-700">
       <SelectField />
     </div>
   );
