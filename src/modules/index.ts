@@ -1,2 +1,2 @@
 export * from "./DataGrid";
-export * from "./StatusFilter";
+export * from "./Filters";

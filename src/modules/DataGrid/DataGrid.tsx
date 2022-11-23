@@ -1,6 +1,8 @@
-import { AppDispatch, CapsulesState, fetchCapsules, RootState } from '@store';
+import { AppDispatch, CapsulesState, fetchCapsules, LoadingStages, RootState } from '@store';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+
+import { DataGridItem } from './DataGridItem';
 
 export const DataGrid = () => {
   const dispatch = useDispatch<AppDispatch>();
@@ -12,5 +14,16 @@ export const DataGrid = () => {
   useEffect(() => {
     dispatch(fetchCapsules());
   }, [dispatch]);
-  return <div>DataGrid</div>;
+
+  if (loading === LoadingStages.PENDING) {
+    return <div>Loading ...</div>;
+  }
+
+  return capsules ? (
+    <div className="my-3 p-5">
+      <DataGridItem capsule={capsules[0] || { missions: [] }} />
+    </div>
+  ) : (
+    <></>
+  );
 };

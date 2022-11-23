@@ -1,6 +1,7 @@
-import { CapsuleStatus } from 'src/models/Capsule';
+import { CapsuleStatus } from '@models';
+import { FilterOption } from '@store';
 
-export const CAPSULE_STATUS_FILTER_OPTIONS = [
+export const CAPSULE_STATUS_FILTER_OPTIONS: FilterOption[] = [
   {
     label: CapsuleStatus.ACTIVE,
     value: CapsuleStatus.ACTIVE,

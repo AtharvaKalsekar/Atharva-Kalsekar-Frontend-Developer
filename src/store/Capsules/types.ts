@@ -1,5 +1,7 @@
+import { Capsule } from '@models';
 import { Loading } from 'src/store/types';
 
 export type CapsulesState = Loading & {
-  capsules: any[];
+  capsules: Capsule[];
+  filteredCapsules: Capsule[];
 };

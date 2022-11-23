@@ -10,7 +10,7 @@ export enum CapsuleStatus {
 export type Capsule = {
   capsuleSerial: string;
   capsuleId: string;
-  capsuleStatus: CapsuleStatus;
+  status: CapsuleStatus;
   originalLaunch: string;
   originalLaunchUnix: number;
   missions: Mission[];
