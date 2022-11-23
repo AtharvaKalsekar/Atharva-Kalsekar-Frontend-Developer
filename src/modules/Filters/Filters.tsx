@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { StatusFilter } from './StatusFilter';
+import { TypeFilter } from './TypeFilter';
 
 export const Filters = () => {
   const filterOptions = useSelector<RootState, FiltersState>(
@@ -18,6 +19,7 @@ export const Filters = () => {
   return (
     <div>
       <StatusFilter />
+      <TypeFilter />
     </div>
   );
 };

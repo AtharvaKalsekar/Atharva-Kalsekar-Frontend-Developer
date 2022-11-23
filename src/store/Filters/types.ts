@@ -1,6 +1,6 @@
 export enum Filters {
   STATUS = "status",
-  ORIGINAL_LAUNCH = "original_launch",
+  ORIGINAL_LAUNCH = "originalLaunch",
   TYPE = "type",
 }
 
