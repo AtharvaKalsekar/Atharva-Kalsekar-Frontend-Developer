@@ -1,12 +1,14 @@
 import './App.css';
 
-import { StatusFilter } from './modules/StatusFilter';
+import { StatusFilter } from '@modules';
+import { store } from '@store';
+import { Provider } from 'react-redux';
 
 function App() {
   return (
-    <div>
+    <Provider store={store}>
       <StatusFilter />
-    </div>
+    </Provider>
   );
 }
 
