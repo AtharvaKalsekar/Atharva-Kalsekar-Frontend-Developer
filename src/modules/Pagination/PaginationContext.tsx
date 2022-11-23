@@ -1,7 +1,7 @@
 import { Capsule } from '@models';
-import { CapsulesState, RootState } from '@store';
-import { createContext, ReactNode, useCallback, useContext, useMemo, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { AppDispatch, CapsulesState, fetchCapsules, RootState } from '@store';
+import { createContext, ReactNode, useCallback, useContext, useEffect, useMemo, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
 import Footer from './Footer';
 
@@ -35,6 +35,12 @@ type PaginationContextProps = {
 export const PaginationContextProvider = ({
   children,
 }: PaginationContextProps) => {
+  const dispatch = useDispatch<AppDispatch>();
+
+  useEffect(() => {
+    dispatch(fetchCapsules());
+  }, [dispatch]);
+
   const { filteredCapsules } = useSelector<RootState, CapsulesState>(
     (state) => state.capsules
   );
