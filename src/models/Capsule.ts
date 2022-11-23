@@ -17,5 +17,5 @@ export type Capsule = {
   landings: number;
   type: string;
   details: string;
-  reuse_count: number;
+  reuseCount: number;
 };

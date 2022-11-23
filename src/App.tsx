@@ -2,7 +2,10 @@ import './App.css';
 
 import { DataGrid, StatusFilter } from '@modules';
 import { store } from '@store';
+import { Buffer } from 'buffer';
 import { Provider } from 'react-redux';
+
+window.Buffer = Buffer;
 
 function App() {
   return (
