@@ -28,9 +28,9 @@ export const applyFilter = (capsules: Capsule[], filterState: FiltersState) => {
   capsules.forEach((capsule, index) => {
     if (
       isSatisfyingFilters(capsule, filterState) &&
-      !filteredCapsules.includes(capsules[index])
+      !filteredCapsules.includes(capsule)
     ) {
-      filteredCapsules.push(capsules[index]);
+      filteredCapsules.push(capsule);
     }
   });
 

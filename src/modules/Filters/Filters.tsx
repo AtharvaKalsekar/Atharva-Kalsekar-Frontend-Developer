@@ -1,3 +1,4 @@
+import { DateRangePicker } from '@components';
 import { AppDispatch, filterCapsules, FiltersState, RootState } from '@store';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -20,6 +21,7 @@ export const Filters = () => {
     <div>
       <StatusFilter />
       <TypeFilter />
+      <DateRangePicker />
     </div>
   );
 };
