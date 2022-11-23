@@ -1,9 +1,4 @@
-export enum CapsuleStatus {
-  ACTIVE = "active",
-  DESTROYED = "destroyed",
-  RETIRED = "retired",
-  UNKNOWN = "unknown",
-}
+import { CapsuleStatus } from 'src/models/Capsule';
 
 export const CAPSULE_STATUS_FILTER_OPTIONS = [
   {
