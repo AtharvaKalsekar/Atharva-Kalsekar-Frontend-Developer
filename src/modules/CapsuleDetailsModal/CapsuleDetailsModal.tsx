@@ -33,9 +33,9 @@ const CapsuleDetailsModal = ({
             {capsule?.missions?.map((mission) => mission.name).join(",") ?? "-"}{" "}
           </div>
         </div>
-        <div className="w-1/2 overflow-hidden rounded-md">
+        <div className="mx-3 w-1/2 overflow-hidden rounded-md">
           <img
-            className="h-full rounded-md object-cover"
+            className="h-[300px] rounded-md object-cover"
             src={"/images/capsule.jpeg"}
             alt={"capsule"}
           />
