@@ -7,6 +7,7 @@ import { store } from '@store';
 import { Buffer } from 'buffer';
 import { Provider } from 'react-redux';
 
+import Banner from './modules/Banner/Banner';
 import { PaginationContextProvider } from './modules/Pagination';
 
 window.Buffer = Buffer;
@@ -14,6 +15,7 @@ window.Buffer = Buffer;
 function App() {
   return (
     <Provider store={store}>
+      <Banner />
       <Filters />
       <PaginationContextProvider>
         <DataGrid />
