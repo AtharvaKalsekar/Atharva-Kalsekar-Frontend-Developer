@@ -21,7 +21,7 @@ export const DataGrid = () => {
   }, []);
 
   return capsules ? (
-    <div className="grid h-[620px] grid-cols-2 items-start bg-gray-300 sm:grid-cols-3 md:grid-cols-4">
+    <div className="grid h-[620px] grid-cols-2 items-start bg-gray-300 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
       {capsules.map((capsule, index) => {
         return (
           <div

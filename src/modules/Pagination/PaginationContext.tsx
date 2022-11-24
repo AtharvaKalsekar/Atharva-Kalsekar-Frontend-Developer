@@ -38,16 +38,18 @@ export const PaginationContextProvider = ({
 }: PaginationContextProps) => {
   const dispatch = useDispatch<AppDispatch>();
 
-  const { isMobile, isTablet } = useWindowSize();
+  const { isMobile, isTablet, isLaptop } = useWindowSize();
 
   const numberOfItemsPerPage = useMemo(() => {
     if (isMobile) {
       return 4;
     } else if (isTablet) {
       return 6;
+    } else if (isLaptop) {
+      return 8;
     }
-    return 8;
-  }, [isMobile, isTablet]);
+    return 10;
+  }, [isMobile, isTablet, isLaptop]);
 
   useEffect(() => {
     dispatch(fetchCapsules());

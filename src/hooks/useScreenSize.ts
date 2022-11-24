@@ -7,8 +7,9 @@ export type WindowDimension = {
 
 export const WINDOW_TYPE = {
   isMobile: (width: number) => width < 640,
-  isTablet: (width: number) => width >= 640 && width <= 768,
-  isLaptop: (width: number) => width >= 768,
+  isTablet: (width: number) => width >= 640 && width < 768,
+  isLaptop: (width: number) => width >= 768 && width < 1024,
+  isDesktop: (width: number) => width >= 1024,
 };
 
 export const useWindowSize = () => {
