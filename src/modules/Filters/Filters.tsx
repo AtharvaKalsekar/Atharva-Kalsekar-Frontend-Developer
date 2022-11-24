@@ -18,7 +18,7 @@ export const Filters = () => {
   }, [dispatch, filterOptions]);
 
   return (
-    <div id="filters" className="flex w-full flex-col">
+    <div data-testid="filters" id="filters" className="flex w-full flex-col">
       <div className="my-5 w-full text-center ">
         <span className="block text-4xl font-bold">
           Journey of 1000 miles begins with a step.

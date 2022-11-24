@@ -2,7 +2,7 @@ import Button from 'src/components/Button/Button';
 
 const Banner = () => {
   return (
-    <div className="min-h-[350px] w-full min-w-[740px]">
+    <div data-testid="banner" className="min-h-[350px] w-full min-w-[740px]">
       <img
         className="h-full w-full"
         src={"/images/banner_1.webp"}

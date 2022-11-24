@@ -11,4 +11,10 @@ module.exports = {
       "@store": path.resolve(__dirname, "src/store"),
     },
   },
+  jest: {
+    configure: {
+      roots: ["<rootDir>/src"],
+      testMatch: ["<rootDir>/src/**/*.{spec,test}.{js,jsx,ts,tsx}"],
+    },
+  },
 };
