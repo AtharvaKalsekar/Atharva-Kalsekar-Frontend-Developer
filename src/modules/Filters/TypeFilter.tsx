@@ -26,6 +26,7 @@ export const TypeFilter = () => {
       options={CAPSULE_TYPE_FILTER_OPTIONS}
       isMulti={true}
       onChange={onChange}
+      placeholder={"Filter by Capsule Type"}
     />
   );
 };

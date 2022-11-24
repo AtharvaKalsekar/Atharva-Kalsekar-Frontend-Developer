@@ -26,6 +26,7 @@ export const StatusFilter = () => {
       options={CAPSULE_STATUS_FILTER_OPTIONS}
       isMulti={true}
       onChange={onChange}
+      placeholder={"Filter by Capsule Status"}
     />
   );
 };

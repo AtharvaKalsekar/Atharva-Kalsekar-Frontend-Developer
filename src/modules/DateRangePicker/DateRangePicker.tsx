@@ -67,7 +67,7 @@ export const DateRangePicker = () => {
 
   const modal = useMemo(
     () => (
-      <Modal>
+      <Modal onClickClose={onClickCancel}>
         <div className="m-2 flex w-fit  flex-col overflow-hidden rounded-md border border-solid border-black">
           <RDateRangePicker
             ranges={[{ ...range, key: "selection" }]}
@@ -110,7 +110,7 @@ export const DateRangePicker = () => {
               dateRange.endDate,
               "do MMM yyy"
             )}`
-          : "Date range picker"}
+          : "Filter by Launch Date"}
       </Button>
       {showPicker &&
         ReactDOM.createPortal(modal, document.getElementById("modal-root")!)}
