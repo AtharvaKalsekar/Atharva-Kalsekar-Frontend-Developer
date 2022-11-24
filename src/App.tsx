@@ -5,7 +5,6 @@ import 'react-date-range/dist/theme/default.css';
 import { DataGrid, Filters } from '@modules';
 import { store } from '@store';
 import { Buffer } from 'buffer';
-import { useEffect } from 'react';
 import { Provider } from 'react-redux';
 
 import { PaginationContextProvider } from './modules/Pagination';

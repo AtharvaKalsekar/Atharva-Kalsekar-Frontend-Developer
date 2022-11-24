@@ -1,3 +1,4 @@
+import { useWindowSize } from '@hooks';
 import { Capsule } from '@models';
 import { AppDispatch, CapsulesState, fetchCapsules, RootState } from '@store';
 import { createContext, ReactNode, useCallback, useContext, useEffect, useMemo, useState } from 'react';
@@ -37,6 +38,12 @@ export const PaginationContextProvider = ({
 }: PaginationContextProps) => {
   const dispatch = useDispatch<AppDispatch>();
 
+  const { isMobile } = useWindowSize();
+
+  const numberOfItemsPerPage = useMemo(() => {
+    return isMobile ? 4 : 8;
+  }, [isMobile]);
+
   useEffect(() => {
     dispatch(fetchCapsules());
   }, [dispatch]);
@@ -47,12 +54,10 @@ export const PaginationContextProvider = ({
 
   const [currentPage, setCurrentPage] = useState(1);
 
-  const numberOfItemsPerPage = 6;
-
   const isLastPage = useMemo(
     () =>
       currentPage === Math.ceil(filteredCapsules.length / numberOfItemsPerPage),
-    [currentPage, filteredCapsules.length]
+    [currentPage, filteredCapsules.length, numberOfItemsPerPage]
   );
 
   const onClickPage = useCallback((pageNumber: number) => {
@@ -72,7 +77,7 @@ export const PaginationContextProvider = ({
     const startIndex = offset;
     const endIndex = offset + numberOfItemsPerPage;
     return filteredCapsules.slice(startIndex, endIndex);
-  }, [currentPage, filteredCapsules]);
+  }, [currentPage, filteredCapsules, numberOfItemsPerPage]);
 
   const value: PaginationState = useMemo(
     () => ({
@@ -91,9 +96,10 @@ export const PaginationContextProvider = ({
     }),
     [
       currentPage,
-      filteredCapsules,
+      filteredCapsules.length,
       isLastPage,
       itemsToDisplay,
+      numberOfItemsPerPage,
       onClickNextPage,
       onClickPage,
       onClickPreviousPage,
@@ -103,10 +109,10 @@ export const PaginationContextProvider = ({
   return (
     <PaginationContext.Provider value={value}>
       {filteredCapsules.length ? (
-        <>
+        <div className="">
           {children}
           <Footer />
-        </>
+        </div>
       ) : null}
     </PaginationContext.Provider>
   );

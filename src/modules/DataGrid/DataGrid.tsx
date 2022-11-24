@@ -1,22 +1,18 @@
-import { Capsule } from '@models';
-import { useEffect } from 'react';
-
 import { usePaginationContext } from '../Pagination';
 import { DataGridItem } from './DataGridItem';
-
-type DataGridProps = {
-  capsules: Capsule[];
-};
 
 export const DataGrid = () => {
   const { itemsToDisplay: capsules } = usePaginationContext();
 
   return capsules ? (
-    <div className="my-3 mx-auto flex flex-row flex-wrap items-center justify-between p-5">
-      {capsules.map((capsule) => {
+    <div className="grid h-[620px] grid-cols-2 items-start sm:grid-cols-3 md:grid-cols-4">
+      {capsules.map((capsule, index) => {
         return (
-          <div className="m-4 min-w-[20%]">
-            <DataGridItem capsule={capsule} key={capsule.capsuleId} />
+          <div
+            className="m-4 flex min-w-[20%] items-center justify-center"
+            key={`${capsule.capsuleId}_${index}`}
+          >
+            <DataGridItem capsule={capsule} />
           </div>
         );
       })}

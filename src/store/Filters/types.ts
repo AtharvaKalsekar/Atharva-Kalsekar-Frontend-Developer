@@ -5,8 +5,8 @@ export enum Filters {
 }
 
 export type DateRange = {
-  startDate: Date | null;
-  endDate: Date | null;
+  startDate: Date | null | undefined;
+  endDate: Date | null | undefined;
 };
 
 export type FiltersState = {

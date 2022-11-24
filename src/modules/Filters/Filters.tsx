@@ -18,10 +18,16 @@ export const Filters = () => {
   }, [dispatch, filterOptions]);
 
   return (
-    <div>
-      <StatusFilter />
-      <TypeFilter />
-      <DateRangePicker />
+    <div className="flex w-full flex-col items-center gap-3 p-5 sm:flex-row sm:flex-wrap">
+      <div className="w-full sm:flex-1">
+        <StatusFilter />
+      </div>
+      <div className="w-full sm:flex-1">
+        <TypeFilter />
+      </div>
+      <div className="w-full sm:flex-1">
+        <DateRangePicker />
+      </div>
     </div>
   );
 };
