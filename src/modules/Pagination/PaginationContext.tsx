@@ -116,7 +116,7 @@ export const PaginationContextProvider = ({
   return (
     <PaginationContext.Provider value={value}>
       {filteredCapsules.length ? (
-        <div className="">
+        <div>
           {children}
           <Footer />
         </div>

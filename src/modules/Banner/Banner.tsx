@@ -14,7 +14,7 @@ const Banner = () => {
           src={"/images/capsule_corp_logo.png"}
           alt={"banner"}
         />
-        <div className="mt-20 ml-auto w-[53%] p-3 text-left text-white md:mt-44 lg:mt-56">
+        <div className="mt-20 ml-auto w-[53%] p-3 text-left text-white md:mt-44 lg:mt-56 xl:mt-64">
           <span className="my-2 block text-xl font-bold md:text-5xl">
             Sky is the limit !
           </span>
