@@ -7,27 +7,41 @@ const Footer = () => {
     onClickPage,
     onClickNextPage,
     onClickPreviousPage,
+    isFirstPage,
+    isLastPage,
   } = usePaginationContext();
   return (
     <div className="flex w-full flex-row items-center justify-center">
-      <div className="mx-3" onClick={onClickPreviousPage}>
+      <button
+        className={`mx-3 cursor-pointer rounded-md p-2 font-semibold hover:bg-blue-300 hover:text-white ${
+          isFirstPage ? "cursor-not-allowed" : ""
+        }`}
+        onClick={onClickPreviousPage}
+      >
         {"<"}
-      </div>
+      </button>
       {Array.from<number>({ length: totalNumberOfPages }).map((item, index) => {
         const isActive = currentPage === index + 1;
         return (
           <div
             onClick={() => onClickPage(index + 1)}
-            className={`mx-3 ${isActive && "bg-blue-700"}`}
+            className={`mx-3 cursor-pointer rounded-md p-2 font-semibold hover:bg-blue-300 hover:text-white ${
+              isActive && "bg-blue-700 text-white"
+            }`}
             key={index + 1}
           >
             {index + 1}
           </div>
         );
       })}
-      <div className="mx-3" onClick={onClickNextPage}>
+      <button
+        className={`mx-3 cursor-pointer rounded-md p-2 font-semibold hover:bg-blue-300 hover:text-white ${
+          isLastPage ? "cursor-not-allowed" : ""
+        }`}
+        onClick={onClickNextPage}
+      >
         {">"}
-      </div>
+      </button>
     </div>
   );
 };
