@@ -5,8 +5,8 @@ import { DateRangePicker as RDateRangePicker } from 'react-date-range';
 import ReactDOM from 'react-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
-import Button from '../Button/Button';
-import { Modal } from '../Modal';
+import Button from '../../components/Button/Button';
+import { Modal } from '../../components/Modal';
 
 const initialState = {
   startDate: new Date(),

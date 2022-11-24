@@ -1,8 +1,8 @@
-import { DateRangePicker } from '@components';
 import { AppDispatch, filterCapsules, FiltersState, RootState } from '@store';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
+import { DateRangePicker } from '../DateRangePicker';
 import { StatusFilter } from './StatusFilter';
 import { TypeFilter } from './TypeFilter';
 

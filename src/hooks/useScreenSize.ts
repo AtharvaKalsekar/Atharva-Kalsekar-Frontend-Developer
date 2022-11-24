@@ -13,8 +13,8 @@ export const WINDOW_TYPE = {
 
 export const useWindowSize = () => {
   const [windowSize, setWindowSize] = useState<WindowDimension>({
-    innerHeight: null,
-    innerWidth: null,
+    innerHeight: window?.innerHeight ?? null,
+    innerWidth: window?.innerWidth ?? null,
   });
 
   useEffect(() => {
