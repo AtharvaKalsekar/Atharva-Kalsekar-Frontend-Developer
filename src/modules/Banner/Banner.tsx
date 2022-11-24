@@ -2,13 +2,13 @@ import Button from 'src/components/Button/Button';
 
 const Banner = () => {
   return (
-    <div data-testid="banner" className="min-h-[350px] w-full min-w-[740px]">
+    <div data-testid="banner" className="min-h-[350px] w-full">
       <img
-        className="h-full w-full"
+        className="min-h-[350px] w-full"
         src={"/images/banner_1.webp"}
         alt={"banner"}
       />
-      <div className="absolute top-0 left-0 h-full min-h-[350px] w-full min-w-[740px]">
+      <div className="absolute top-0 left-0 h-full min-h-[350px] w-full">
         <img
           className="absolute h-20 w-20 md:h-24 md:w-24"
           src={"/images/capsule_corp_logo.png"}
