@@ -11,9 +11,9 @@ const Footer = () => {
     isLastPage,
   } = usePaginationContext();
   return (
-    <div className="flex w-full flex-row items-center justify-center">
+    <div className="my-4 flex w-full flex-row items-center justify-center">
       <button
-        className={`mx-3 cursor-pointer rounded-md p-2 font-semibold hover:bg-blue-300 hover:text-white ${
+        className={`mx-3 cursor-pointer rounded-md border p-2 font-semibold hover:border-solid hover:border-blue-700 hover:text-blue-700 ${
           isFirstPage ? "cursor-not-allowed" : ""
         }`}
         onClick={onClickPreviousPage}
@@ -25,9 +25,9 @@ const Footer = () => {
         return (
           <div
             onClick={() => onClickPage(index + 1)}
-            className={`mx-3 cursor-pointer rounded-md p-2 font-semibold hover:bg-blue-300 hover:text-white ${
-              isActive && "bg-blue-700 text-white"
-            }`}
+            className={`mx-3 cursor-pointer rounded-md border p-2 font-semibold hover:border-solid hover:border-blue-700 ${
+              isActive ? "" : "hover:text-blue-700"
+            }  ${isActive && "bg-blue-700 text-white"}`}
             key={index + 1}
           >
             {index + 1}
@@ -35,7 +35,7 @@ const Footer = () => {
         );
       })}
       <button
-        className={`mx-3 cursor-pointer rounded-md p-2 font-semibold hover:bg-blue-300 hover:text-white ${
+        className={`mx-3 cursor-pointer rounded-md border p-2 font-semibold hover:border-solid hover:border-blue-700 hover:text-blue-700 ${
           isLastPage ? "cursor-not-allowed" : ""
         }`}
         onClick={onClickNextPage}

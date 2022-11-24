@@ -21,12 +21,12 @@ export const DataGrid = () => {
   }, []);
 
   return capsules ? (
-    <div className="grid h-[620px] grid-cols-2 items-start sm:grid-cols-3 md:grid-cols-4">
+    <div className="grid h-[620px] grid-cols-2 items-start bg-gray-300 sm:grid-cols-3 md:grid-cols-4">
       {capsules.map((capsule, index) => {
         return (
           <div
             onClick={() => onClickItem(capsule)}
-            className="m-4 flex min-w-[20%] cursor-pointer items-center justify-center"
+            className="m-4 flex min-w-[20%] cursor-pointer items-center justify-center overflow-hidden rounded-md bg-white shadow-xl"
             key={`${capsule.capsuleId}_${index}`}
           >
             <DataGridItem capsule={capsule} />
