@@ -1,6 +1,6 @@
 import { useWindowSize } from '@hooks';
 import { Capsule } from '@models';
-import { AppDispatch, CapsulesState, fetchCapsules, RootState } from '@store';
+import { AppDispatch, CapsulesState, fetchCapsules, LoadingStages, RootState } from '@store';
 import { createContext, ReactNode, useCallback, useContext, useEffect, useMemo, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -55,7 +55,7 @@ export const PaginationContextProvider = ({
     dispatch(fetchCapsules());
   }, [dispatch]);
 
-  const { filteredCapsules } = useSelector<RootState, CapsulesState>(
+  const { filteredCapsules, loading } = useSelector<RootState, CapsulesState>(
     (state) => state.capsules
   );
 
@@ -115,12 +115,20 @@ export const PaginationContextProvider = ({
 
   return (
     <PaginationContext.Provider value={value}>
-      {filteredCapsules.length ? (
-        <div>
-          {children}
-          <Footer />
-        </div>
+      {loading === LoadingStages.SUCCEEDED ? (
+        filteredCapsules.length ? (
+          <div>
+            {children}
+            <Footer />
+          </div>
+        ) : (
+          <div className="h-[640px] w-full text-center">
+            <span className="mt-20 block">No results matching the filters</span>
+          </div>
+        )
       ) : null}
+      {loading === LoadingStages.PENDING && <div>Loading ...</div>}
+      {loading === LoadingStages.FAILED && <div>Error occured</div>}
     </PaginationContext.Provider>
   );
 };

@@ -10,7 +10,7 @@ const Footer = () => {
     isFirstPage,
     isLastPage,
   } = usePaginationContext();
-  return (
+  return totalNumberOfPages ? (
     <div className="my-4 flex w-full flex-row items-center justify-center">
       <button
         className={`mx-3 cursor-pointer rounded-md border p-2 font-semibold hover:border-solid hover:border-blue-700 hover:text-blue-700 ${
@@ -43,7 +43,7 @@ const Footer = () => {
         {">"}
       </button>
     </div>
-  );
+  ) : null;
 };
 
 export default Footer;
