@@ -13,8 +13,8 @@ const CapsuleDetailsModal = ({
 }: CapsuleDetailsModalProps) => {
   return (
     <Modal onClickClose={onClose}>
-      <div className="flex flex-row bg-white py-3">
-        <div className="w-1/2 px-2">
+      <div className="flex flex-col-reverse bg-white p-3 sm:flex-row">
+        <div className="w-full px-2 sm:w-1/2">
           <div className="my-1">
             <b>Serial : </b> {capsule.capsuleSerial ?? "-"}{" "}
           </div>
@@ -33,7 +33,7 @@ const CapsuleDetailsModal = ({
             {capsule?.missions?.map((mission) => mission.name).join(",") ?? "-"}{" "}
           </div>
         </div>
-        <div className="mx-3 w-1/2 overflow-hidden rounded-md">
+        <div className="w-full items-center justify-center overflow-hidden rounded-md sm:mx-3 sm:w-1/2">
           <img
             className="h-[300px] rounded-md object-cover"
             src={"/images/capsule.jpeg"}

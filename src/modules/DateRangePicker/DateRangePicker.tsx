@@ -67,8 +67,8 @@ export const DateRangePicker = () => {
 
   const modal = useMemo(
     () => (
-      <Modal onClickClose={onClickCancel}>
-        <div className="m-2 flex w-fit origin-top-left scale-[0.87]  flex-col overflow-hidden rounded-md border border-solid border-black sm:scale-100">
+      <Modal onClickClose={onClickCancel} showOnlyChild={true}>
+        <div className="m-2 flex w-fit origin-top-left flex-col overflow-hidden rounded-md border border-solid border-black">
           <RDateRangePicker
             ranges={[{ ...range, key: "selection" }]}
             onChange={onChange}
